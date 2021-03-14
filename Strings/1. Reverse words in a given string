@@ -1,0 +1,13 @@
+def reverseWords(S):
+        # code here 
+        S_rev=""
+        temp=""
+        for i in range(0,len(S)):
+            if(S[i]!="."):
+                temp =  temp + S[i]
+            else:
+                S_rev="."+temp+S_rev
+                temp=""
+        S_rev=temp+S_rev
+ 
+        return S_rev  
