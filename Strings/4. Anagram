@@ -1,0 +1,15 @@
+def isAnagram(self,a,b):
+        #code here
+        hash = [0]*26
+        if len(a)!=len(b):
+            return False
+        for i in range(0,len(a)):
+            ind = ord(a[i])-ord('a')
+            hash[ind]+=1
+        for i in range(0,len(b)):
+            ind=ord(b[i])-ord('a')
+            hash[ind]-=1
+        for i in range(0,26):
+            if(hash[i]!=0):
+                return False
+        return True
