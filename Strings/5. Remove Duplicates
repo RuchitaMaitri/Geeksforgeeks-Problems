@@ -1,0 +1,10 @@
+	def removeDups(self, S):
+		# code here
+		tmp=""
+        hash2=[0]*26
+        for i in range(0,len(S)):
+            ind=ord(S[i])-ord('a')
+            hash2[ind]+=1
+            if hash2[ind]==1:
+                tmp=tmp+S[i]
+        return tmp
