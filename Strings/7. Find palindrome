@@ -1,0 +1,19 @@
+#This is a basic approach; efficient solution will be done after studying DP
+def countMin(self, Str):
+        # code here
+        def check(Str,l,h):
+            import sys
+            if (l>h):
+                return sys.max_size
+            if (l==h):
+                return 0
+            if (l==h-1):
+                if Str[l]==Str[h]:
+                    return 0
+                else:
+                    return 1
+            if (Str[l]==Str[h]):
+                return check(Str,l+1,h-1)
+            else:
+                return (min(check(Str,l,h-1),check(Str,l+1,h))+1)
+        return check(Str,0,(len(Str)-1))
