@@ -17,3 +17,26 @@ def countMin(self, Str):
             else:
                 return (min(check(Str,l,h-1),check(Str,l+1,h))+1)
         return check(Str,0,(len(Str)-1))
+#Approach using DP
+    def countMin(self, Str):
+        # code here
+        dp = [ [0]*len(Str) for _ in range(len(Str)) ]
+        # dp = [[0]*len(Str)]*len(Str)
+        # print(dp)
+        for k in range(0, len(Str)):
+            for i in range(0, len(Str)-k):
+                j=i+k
+                if(k==0):
+                    dp[i][i]=0
+                elif(k==1):
+                    if(Str[i]==Str[i+1]):
+                        dp[i][i+1]=0
+                    else:
+                        dp[i][i+1]=1
+                else:
+                    if(Str[i]==Str[j]):
+                        dp[i][j]=dp[i+1][j-1]
+                    else:
+                        dp[i][j]=min(dp[i+1][j], dp[i][j-1])+1
+        # print(dp)
+        return dp[0][len(Str)-1]
