@@ -1,0 +1,29 @@
+ def longestSubstrDitinctChars(self, S):
+        # code here
+        hash=[-1]*26
+        temp=""
+        len_str=0
+        str=""
+        i=0
+        while(i<len(S)):
+#        for i in range(0,len(S)):
+            if(hash[ord(S[i])-ord('a')]==-1):
+ #               print("entering if")
+                hash[ord(S[i])-ord('a')]=i
+  #              print(hash[ord(S[i])-ord('a')])
+                temp=temp+S[i]
+                i+=1
+                if(len(temp)>len_str):
+                    len_str=len(temp)
+                    str=temp
+            else: 
+      #          print("entering else")
+                if(len(temp)>len_str):
+                    len_str=len(temp)
+                    str=temp
+       #             print(str)
+                i=hash[ord(S[i])-ord('a')]+1
+       #         print(i)
+                hash=[-1]*26
+                temp=""
+        return len_str
