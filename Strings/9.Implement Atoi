@@ -1,0 +1,16 @@
+  def atoi(self,string):
+        # Code here
+        if string[0]=='-':
+            string1=string[1:]
+        else:
+            string1=string
+        num=0
+        for i in range(0,len(string1)):
+            if(ord(string1[i])-ord('0')<=9):
+                num=(ord(string1[i])-ord('0'))*pow(10,len(string1)-1-i)+num
+            else: 
+                return -1
+        if string[0]=='-':
+            return num*(-1)
+        else:
+            return num
