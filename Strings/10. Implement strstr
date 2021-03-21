@@ -1,0 +1,21 @@
+def strstr(s,x):
+    #code here
+    ind=-1
+    k=-1
+    for i in range(0,len(s)):
+        j=0
+        if(s[i]==x[j]):
+            ind=i
+            k=i
+            while (j<len(x)):
+                # print(j,k)
+                if(k < len(s) and x[j]==s[k]):
+                    k+=1
+                    if(j==len(x)-1):
+                        return ind
+                    # print(ind)
+                else:
+                    ind=-1
+                    break
+                j+=1
+    return ind
