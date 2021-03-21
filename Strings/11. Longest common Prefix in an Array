@@ -1,0 +1,28 @@
+ def longestCommonPrefix(self, arr, n):
+        # code here
+        import sys
+        arr_len=[0]*len(arr)
+        
+        for i in range(0,len(arr)):
+            arr_len[i]=len(arr[i])
+        # print(arr_len)
+        
+        min_ind=-1
+        min_value=sys.maxsize
+        for i in range(0,len(arr_len)):
+            if(arr_len[i]<min_value):
+                min_value=arr_len[i]
+                min_ind=i
+                
+        # print(min_ind,min_value)
+        
+        str=""
+        for i in range(0,min_value):
+            for j in range(0,n):
+                if(arr[j][i]!=arr[min_ind][i]):
+                    if(str!=""):
+                        return str
+                    else:
+                        return -1 
+            str=str+arr[min_ind][i]
+        return str
