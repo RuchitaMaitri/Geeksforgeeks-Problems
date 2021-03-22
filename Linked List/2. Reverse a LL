@@ -1,0 +1,16 @@
+def reverseList(self, head):
+        # Code here
+        p=None
+        q=head
+        r=None
+        while(q.next!=None):
+            r=q.next
+            q.next=p
+            p=q
+            q=r
+        q.next=p
+        head=q
+        tmp=head
+        while(tmp!=None):
+            print(tmp.data, end=" ")
+            tmp=tmp.next
