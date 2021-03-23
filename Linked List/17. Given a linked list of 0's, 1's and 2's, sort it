@@ -1,0 +1,30 @@
+def segregate(self, head):
+        #code here
+        zero=LinkedList()
+        one=LinkedList()
+        two=LinkedList()
+        tmp=head
+        while(tmp!=None):
+            if(tmp.data==0):
+                zero.append(tmp.data)
+                tmp=tmp.next
+            elif(tmp.data==1):
+                one.append(tmp.data)
+                tmp=tmp.next
+            elif(tmp.data==2):
+                two.append(tmp.data)
+                tmp=tmp.next
+            
+        if zero.head==None:
+            zero.head=one.head
+        
+        if one.head==None:
+            one.head=two.head
+            
+        if zero.tail!=None:
+            zero.tail.next=one.head
+        
+        if one.tail!=None:
+            one.tail.next=two.head
+        
+        return zero.head
