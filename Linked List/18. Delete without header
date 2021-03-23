@@ -1,0 +1,5 @@
+def deleteNode(self,curr_node):
+        #code here
+        q=curr_node.next
+        curr_node.data=q.data
+        curr_node.next=q.next
