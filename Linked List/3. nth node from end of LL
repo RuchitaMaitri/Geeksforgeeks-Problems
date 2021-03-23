@@ -1,0 +1,14 @@
+def getNthFromLast(head,n):
+    #code here
+    tmp=head
+    count=0
+    while(tmp!=None):
+        count+=1
+        tmp=tmp.next
+    tmp=head
+    if(n<=count):
+        for i in range (0,count-n):
+            tmp=tmp.next
+        return tmp.data
+    else:
+        return -1
