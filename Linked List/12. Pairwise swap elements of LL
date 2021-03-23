@@ -1,0 +1,19 @@
+def pairWiseSwap(self, head):
+        # code here
+        #Recursion
+        def swap(head):
+            if head==None:
+                return head
+            elif head.next==None:
+                return head
+            else: 
+                lead=head
+                back=head
+                lead=lead.next
+                back.next=lead.next
+                lead.next=back
+                head=lead
+                back.next=swap(back.next)
+                return head
+            
+        return swap(head)
