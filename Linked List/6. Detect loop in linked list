@@ -1,0 +1,17 @@
+def detectLoop(self, head):
+        #code here
+        p=head
+        q=head
+        p=p.next
+        q=q.next
+        if q!=None:
+            q=q.next
+        while(p!=None and q!= None and p!=q):
+            p=p.next
+            q=q.next
+            if q!=None:
+                q=q.next
+        if(p==q):
+            return True
+        else:
+            return False
