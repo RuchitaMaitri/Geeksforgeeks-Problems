@@ -1,0 +1,16 @@
+def rotate(self, head, k):
+        # code here
+        
+        p=head
+        while(p.next!=None):
+            p=p.next
+
+        q=head
+        i=0
+        while(i<k):
+            p.next=head
+            p=p.next
+            head=head.next
+            p.next=None
+            i+=1
+        return head
