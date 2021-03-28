@@ -1,0 +1,15 @@
+def reverse(self,head, k):
+        # Code here
+        pre=None
+        nex=None
+        curr=head
+        count=0
+        while(curr!=None and count < k):
+            nex=curr.next
+            curr.next=pre
+            pre=curr
+            curr=nex
+            count+=1
+        if (nex!=None):
+            head.next=self.reverse(nex,k)
+        return pre
