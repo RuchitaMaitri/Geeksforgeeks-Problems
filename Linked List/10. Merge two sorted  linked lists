@@ -1,0 +1,36 @@
+def sortedMerge(head1, head2):
+    # code here
+    if head1==None:
+        return head2
+    if head2==None:
+        return head1
+    p=head1
+    q=head2
+    head=None
+    if(p.data<q.data):
+        head=head1
+        p=p.next
+    else:
+        head=head2
+        q=q.next
+    r=head
+    while(p!=None and q!=None):
+        if(p.data<q.data):
+            r.next=p
+            r=r.next
+            p=p.next
+        else:
+            r.next=q
+            r=r.next
+            q=q.next
+    if(p==None):
+        while(q!=None):
+            r.next=q
+            r=r.next
+            q=q.next
+    if(q==None):
+        while(p!=None):
+            r.next=p
+            r=r.next
+            p=p.next
+    return head
