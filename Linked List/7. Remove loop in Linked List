@@ -1,0 +1,23 @@
+def removeLoop(self, head):
+        # code here
+        # remove the loop without losing any nodes
+        fast=head
+        slow=head
+        slow=slow.next
+        fast=fast.next
+        if(fast!=None):
+            fast=fast.next
+        while(slow!=None and fast!=None and slow!=fast):
+            slow=slow.next
+            fast=fast.next
+            if(fast!=None):
+                fast=fast.next
+        if(slow==fast):
+            slow=head
+            while(slow!=fast):
+                slow=slow.next
+                fast=fast.next
+            tmp=slow
+            while(tmp.next!=slow):
+                tmp=tmp.next
+            tmp.next=None
