@@ -1,0 +1,50 @@
+def isPalindrome(head):
+    #code here
+    #Find middle element
+    if(head==None or head.next==None):
+        return 1
+    if(head.next.next==None):
+        if(head.data==head.next.data):
+            return 1
+        else:
+            return 0
+    p=head
+    q=head
+    while(q!=None and q.next!=None):
+        p=p.next
+        q=q.next.next
+    #p is now pointing at the middle 
+    
+    tmp=head
+    while(tmp.next!=p):
+        tmp=tmp.next
+    #tmp pointing just before p
+    
+    #Reverse 
+    def reverseList(head):
+        # Code here
+        p=None
+        q=head
+        r=None
+        while(q.next!=None):
+            r=q.next
+            q.next=p
+            p=q
+            q=r
+        q.next=p
+        head=q
+        return head
+        
+    #reverse list from middle
+    tmp.next=reverseList(p)
+    
+    k1=head
+    k2=tmp.next
+    while(k1.next!=tmp.next and k1.data==k2.data):
+        k1=k1.next
+        k2=k2.next
+
+    if(k1.data==k2.data):
+        return 1
+    else:
+        return 0
