@@ -1,0 +1,72 @@
+def addTwoLists(self, first, second):
+        # code here
+        # return head of sum list
+        #linked list 1- size n1
+        def reverseList(self, head):
+        # Code here
+            p=None
+            q=head
+            r=None
+            while(q.next!=None):
+                r=q.next
+                q.next=p
+                p=q
+                q=r
+            q.next=p
+            head=q
+            return head
+        
+        first=reverseList(self,first)
+        second=reverseList(self,second)
+        p=first
+        q=second
+        carry=0
+        sum = (p.data+q.data)%10
+        # print(sum)
+        carry=(p.data+q.data)//10
+        # print(carry)
+        head=Node(sum)
+        tail=head
+        p=p.next
+        q=q.next
+        
+        while(p!=None and q!=None):
+            sum = (p.data+q.data+carry)%10
+            # print(sum)
+            carry = (p.data+q.data+carry)//10
+            # print(carry)
+            tempnode = Node(sum)
+            tail.next = tempnode
+            tail = tempnode
+            p=p.next
+            q=q.next
+        
+        if(p==None and q!=None):
+            while(q!=None):
+                sum = (q.data+carry)%10
+                # print(sum)
+                carry = (q.data+carry)//10
+                # print(carry)
+                tempnode = Node(sum)
+                tail.next = tempnode
+                tail = tempnode
+                q=q.next
+                
+        if(q==None and p!=None):
+            while(p!=None):
+                sum = (p.data+carry)%10
+                # print(sum)
+                carry = (p.data+carry)//10
+                # print(carry)
+                tempnode = Node(sum)
+                tail.next = tempnode
+                tail = tempnode
+                p=p.next
+                
+        if(carry>0):
+            tempnode = Node(carry)
+            tail.next = tempnode
+            tail = tempnode
+        head=reverseList(self,head)
+       
+        return head
