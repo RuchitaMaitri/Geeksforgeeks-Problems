@@ -1,0 +1,43 @@
+def flatten(root):
+    #Your code here
+    def sortedMerge(head1, head2):
+        # code here
+        if head1==None:
+            return head2
+        if head2==None:
+            return head1
+        p=head1
+        q=head2
+        head=None
+        if(p.data<q.data):
+            head=head1
+            p=p.bottom
+            r=head
+        else:
+            head=head2
+            q=q.bottom
+            r=head
+        while(p!=None and q!=None):
+            if(p.data<q.data):
+                r.bottom=p
+                r=r.bottom
+                p=p.bottom
+            else:
+                r.bottom=q
+                r=r.bottom
+                q=q.bottom
+        if(p==None):
+            while(q!=None):
+                r.bottom=q
+                r=r.bottom
+                q=q.bottom
+        if(q==None):
+            while(p!=None):
+                r.bottom=p
+                r=r.bottom
+                p=p.bottom
+        return head
+    
+    if(root==None or root.next==None):
+        return root
+    return sortedMerge(root,flatten(root.next))
