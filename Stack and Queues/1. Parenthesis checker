@@ -1,0 +1,33 @@
+def ispar(self,x):
+        # code here
+        stack=[]
+        s=""
+        for i in range(0,len(x)):
+            if(x[i]=='{' or x[i]=='(' or x[i]=="["):
+                stack.append(x[i])
+            # if(x[i]=='}' or x[i]==')' or x[i]=="]"):
+            if(x[i]=='}'):
+                if(len(stack)==0):
+                    return False
+                else:
+                    s=stack.pop()
+                    if(s!='{'):
+                        return False
+            if(x[i]==')'):
+                if(len(stack)==0):
+                    return False
+                else:
+                    s=stack.pop()
+                    if(s!='('):
+                        return False
+            if(x[i]==']'):
+                if(len(stack)==0):
+                    return False
+                else:
+                    s=stack.pop()
+                    if(s!='['):
+                        return False
+        if len(stack)==0:
+            return True
+        else:
+            return False
